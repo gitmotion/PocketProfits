@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "mkdir -p dist && rsync -av --exclude='dist' --exclude='.github' ./ dist/",
+    "build": "mkdir -p dist && find . -path ./dist -prune -o -path ./.github -prune -o -path ./node_modules -prune -o -type f -exec cp --parents {} dist/ \\;",
     "clean": "rm -rf dist"
   },
   "dependencies": {
