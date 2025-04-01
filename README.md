@@ -1,6 +1,6 @@
 # PocketProfits
 
-Like PocketRockets but with profits! A simple, secure poker bankroll / bet tracking app with PIN protection. Track your innage and winnage (coined by VegasMatt & Team) with a clean, modern interface. Easily selfhost via docker!
+Like PocketRockets but with profits! A simple, secure poker bankroll / bet tracking app with PIN protection. Track your innage and winnage (coined by ![VegasMatt & Team](https://www.youtube.com/@VegasMatt)) with a clean, modern interface. Easily selfhost via docker!
 
 ![Image](https://github.com/user-attachments/assets/1cd79d2a-bdcc-450f-aaf8-b3856d86fa6a)
 
