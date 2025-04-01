@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_IMAGE: gitmotion/pocketprofits
-  PLATFORMS: linux/amd64,linux/arm64,windows/amd64
+  PLATFORMS: linux/amd64,linux/arm64
 
 jobs:
   build-and-push:
