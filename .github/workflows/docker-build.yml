@@ -25,16 +25,26 @@ jobs:
       - name: Set Docker tags
         id: docker_meta
         run: |
+          TAGS="${{ env.DOCKER_IMAGE }}:${{ github.sha }}"
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            echo "DOCKER_TAGS=${DOCKER_IMAGE}:latest" >> $GITHUB_ENV
+            TAGS+=" ${{ env.DOCKER_IMAGE }}:latest"
           elif [ "${{ github.ref }}" = "refs/heads/testing" ]; then
-            echo "DOCKER_TAGS=${DOCKER_IMAGE}:testing" >> $GITHUB_ENV
+            TAGS+=" ${{ env.DOCKER_IMAGE }}:testing"
           fi
+          echo "DOCKER_TAGS=$TAGS" >> $GITHUB_ENV
 
       - name: Build Docker Image
         run: |
-          docker build -t ${{ env.DOCKER_TAGS }} .
+          docker build -t ${{ env.DOCKER_IMAGE }}:${{ github.sha }} .
 
-      - name: Push Docker Image
+      - name: Tag with latest (on main branch push)
+        if: github.ref == 'refs/heads/main'
         run: |
-          docker push ${{ env.DOCKER_TAGS }} 
+          docker tag ${{ env.DOCKER_IMAGE }}:${{ github.sha }} ${{ env.DOCKER_IMAGE }}:latest
+
+      - name: Push Docker images
+        run: |
+          docker push ${{ env.DOCKER_IMAGE }}:${{ github.sha }}
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            docker push ${{ env.DOCKER_IMAGE }}:latest
+          fi
