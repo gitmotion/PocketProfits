@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "mkdir -p dist && rsync -av --exclude='dist' --exclude='.github' ./ dist/",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
