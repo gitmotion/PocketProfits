@@ -52,6 +52,10 @@ Set your preferred currency using the `CURRENCY` environment variable (defaults 
 
 ### Using Docker
 
+#### Images:
+* DockerHub: `gitmotion/pocketprofits:latest`
+* GHCR: `ghcr.io/gitmotion/pocketprofits:latest`
+
 ```bash
 docker run -d \
   -p 3000:3000 \
