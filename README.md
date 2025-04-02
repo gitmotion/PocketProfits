@@ -19,7 +19,7 @@ Forked & Repurposed from <a href="https://github.com/DumbWareio/DumbBudget" targ
 - 📤 Export to CSV or PDF
 - 🔍 Filter transactions by type
 - 💱 Multi-currency support
-- 🌐 PWA Support
+- 🌐 PWA Support (Install as PWA on mobile for mobile app experience)
 
 ## Supported Currencies
 
